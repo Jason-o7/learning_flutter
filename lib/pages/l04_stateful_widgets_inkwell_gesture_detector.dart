@@ -146,8 +146,8 @@ class _StfwInkwellGestureDetectorPageState
                 padding: const EdgeInsets.all(16.0),
                 // color: Colors.lightBlueAccent,
                 decoration: BoxDecoration(
-                  color: Colors.lightBlueAccent.withOpacity(
-                    0.3,
+                  color: Colors.lightBlueAccent.withValues(
+                    alpha: 0.3,
                   ), // Semi-transparente
                   border: Border.all(color: Colors.blue),
                   borderRadius: BorderRadius.circular(8),
@@ -171,7 +171,7 @@ class _StfwInkwellGestureDetectorPageState
                     64,
                     255,
                     93,
-                  ).withOpacity(0.3), // Semi-transparente
+                  ).withValues(alpha: 0.3), // Semi-transparente
                   border: Border.all(
                     color: const Color.fromARGB(255, 33, 243, 124),
                   ),

@@ -23,10 +23,10 @@
 // !!!!!!!! SENKU'S ROADMAP!!!
 
 import 'package:flutter/material.dart';
-import 'package:learning_flutter/pages/layout_widgets_page.dart';
-import 'package:learning_flutter/pages/scaffold_page.dart';
-import 'package:learning_flutter/pages/stateful_widgets_inkwell_gesture_detector.dart';
-import 'package:learning_flutter/pages/text_page.dart';
+import 'package:learning_flutter/pages/l01_scaffold_page.dart';
+import 'package:learning_flutter/pages/l02_text_page.dart';
+import 'package:learning_flutter/pages/l03_layout_widgets_page.dart';
+import 'package:learning_flutter/pages/l04_stateful_widgets_inkwell_gesture_detector.dart';
 import 'pages/buttons_page.dart';
 import 'pages/second_page.dart';
 

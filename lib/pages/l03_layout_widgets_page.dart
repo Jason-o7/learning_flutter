@@ -391,7 +391,7 @@ class LayoutWidgetsPage extends StatelessWidget {
                 borderRadius: BorderRadius.circular(15),
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.black.withOpacity(0.5),
+                    color: Colors.black.withValues(alpha: 0.5),
                     spreadRadius: 2,
                     blurRadius: 5,
                     offset: Offset(0, 3),
@@ -517,6 +517,7 @@ class LayoutWidgetsPage extends StatelessWidget {
                     // B U T T O N S ---------------------------------------------
                     Divider(color: Colors.grey[300], thickness: 1, height: 10),
                     InkWell(
+                      // ignore: avoid_print
                       onTap: () => print('Ver Perfil pressed'),
                       child: Container(
                         padding: const EdgeInsets.all(8),
@@ -533,6 +534,7 @@ class LayoutWidgetsPage extends StatelessWidget {
                       ),
                     ),
                     InkWell(
+                      // ignore: avoid_print
                       onTap: () => print('Configuración pressed'),
                       child: Container(
                         padding: const EdgeInsets.all(8),
@@ -550,6 +552,7 @@ class LayoutWidgetsPage extends StatelessWidget {
                     ),
                     Divider(color: Colors.grey[300], thickness: 1, height: 10),
                     InkWell(
+                      // ignore: avoid_print
                       onTap: () => print('Cerrar Sesión pressed'),
                       child: Container(
                         padding: const EdgeInsets.all(8),
