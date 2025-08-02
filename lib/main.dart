@@ -8,15 +8,16 @@
 // (60%) Container
 // (60%) Column
 // (60%) Row
-// Padding
+// (60%) Padding
 // SizedBox
 // Divider
-// Expanded   !!!
+// (Pending) Expanded   !!!
 // AppBar
 // -----------
-// StatefulWidget
-// Inkwell
-// GestureDetector
+// (50%) StatefulWidget
+// (90%) Inkwell
+// (90%) GestureDetector
+// How to make sure it's responsive?
 
 // !!! Add exercises to make it more interactive
 // !!!!!!!! OMG I CAN MAKE THE ROAD TO MAKE A COMPLICATED COMPONENT LIKE
@@ -27,6 +28,7 @@ import 'package:learning_flutter/pages/l01_scaffold_page.dart';
 import 'package:learning_flutter/pages/l02_text_page.dart';
 import 'package:learning_flutter/pages/l03_layout_widgets_page.dart';
 import 'package:learning_flutter/pages/l04_stateful_widgets_inkwell_gesture_detector.dart';
+import 'package:learning_flutter/pages/l05_dropdown_menu_page.dart';
 import 'pages/buttons_page.dart';
 import 'pages/second_page.dart';
 
@@ -107,7 +109,19 @@ class HomePage extends StatelessWidget {
             ),
             const SizedBox(height: 20),
             // -----------------------------------------------------------------
-            // 5.
+            // 5. Dropdown menu
+            ElevatedButton(
+              onPressed: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const DropdownMenuPage(),
+                ),
+              ),
+              child: const Text('5. Dropdown menu'),
+            ),
+            const SizedBox(height: 20),
+            // -----------------------------------------------------------------
+            // #.
             ElevatedButton(
               onPressed: () => Navigator.push(
                 context,
