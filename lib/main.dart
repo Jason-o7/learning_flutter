@@ -18,6 +18,12 @@
 // (90%) Inkwell
 // (90%) GestureDetector
 // How to make sure it's responsive?
+// -----------
+// (60%) Popup menu
+// (20%) Dropdown button
+// (20%) Dropdown button form field
+// DropdownButton2
+// -----------
 
 // !!! Add exercises to make it more interactive
 // !!!!!!!! OMG I CAN MAKE THE ROAD TO MAKE A COMPLICATED COMPONENT LIKE
@@ -29,8 +35,7 @@ import 'package:learning_flutter/pages/l02_text_page.dart';
 import 'package:learning_flutter/pages/l03_layout_widgets_page.dart';
 import 'package:learning_flutter/pages/l04_stateful_widgets_inkwell_gesture_detector.dart';
 import 'package:learning_flutter/pages/l05_dropdown_menu_page.dart';
-import 'pages/buttons_page.dart';
-import 'pages/second_page.dart';
+import 'pages/example_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -122,21 +127,6 @@ class HomePage extends StatelessWidget {
             const SizedBox(height: 20),
             // -----------------------------------------------------------------
             // #.
-            ElevatedButton(
-              onPressed: () => Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const ButtonsPage()),
-              ),
-              child: const Text('Botones'),
-            ),
-            const SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () => Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => CustomUserDropdown()),
-              ),
-              child: const Text('Segunda Página'),
-            ),
           ],
         ),
       ),
