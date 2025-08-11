@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class ButtonsPage extends StatelessWidget {
-  const ButtonsPage({super.key});
+class ExamplePage extends StatelessWidget {
+  const ExamplePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -10,8 +10,8 @@ class ButtonsPage extends StatelessWidget {
     // -------------------------------------------------------------------------
     //
     return Scaffold(
-      appBar: AppBar(title: const Text('Botones')),
-      body: const Center(child: Text('Página de botones')),
+      appBar: AppBar(title: const Text('Example Page')),
+      body: const Center(child: Text('Página de ejemplo')),
     );
   }
 }

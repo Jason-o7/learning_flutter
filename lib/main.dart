@@ -24,18 +24,33 @@
 // (20%) Dropdown button form field
 // DropdownButton2
 // -----------
+// TextField
+// TextFormField
+// TextEditingController
+// Form
+// -----------
+// ElevatedButton
+// TextButton
+// OutlinedButton
+// -----------
+// SingleChildScrollView
+// -----------
+// Card
 
 // !!! Add exercises to make it more interactive
 // !!!!!!!! OMG I CAN MAKE THE ROAD TO MAKE A COMPLICATED COMPONENT LIKE
 // !!!!!!!! SENKU'S ROADMAP!!!
 
 import 'package:flutter/material.dart';
+import 'package:learning_flutter/pages/e01_login_page.dart';
 import 'package:learning_flutter/pages/l01_scaffold_page.dart';
 import 'package:learning_flutter/pages/l02_text_page.dart';
 import 'package:learning_flutter/pages/l03_layout_widgets_page.dart';
 import 'package:learning_flutter/pages/l04_stateful_widgets_inkwell_gesture_detector.dart';
 import 'package:learning_flutter/pages/l05_dropdown_menu_page.dart';
-import 'pages/example_page.dart';
+import 'package:learning_flutter/pages/l06_buttons_page.dart';
+import 'package:learning_flutter/pages/l07_images_page.dart';
+// import 'pages/example_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -126,7 +141,46 @@ class HomePage extends StatelessWidget {
             ),
             const SizedBox(height: 20),
             // -----------------------------------------------------------------
-            // #.
+            // 6. Buttons
+            ElevatedButton(
+              onPressed: () => Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const ButtonsPage()),
+              ),
+              child: const Text('6. Buttons'),
+            ),
+            const SizedBox(height: 20),
+            // -----------------------------------------------------------------
+            // 7. Images
+            ElevatedButton(
+              onPressed: () => Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const ImagePage()),
+              ),
+              child: const Text('7. Images'),
+            ),
+            const SizedBox(height: 20),
+
+            // -----------------------------------------------------------------
+            // Exercise pages
+            // -----------------------------------------------------------------
+            Divider(color: Colors.grey, thickness: 1, height: 40),
+            const Text(
+              'Exercise Pages',
+              style: TextStyle(
+                color: Colors.red,
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            ElevatedButton(
+              onPressed: () => Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const LoginPage()),
+              ),
+              child: const Text('1. Login Page'),
+            ),
+            const SizedBox(height: 20),
           ],
         ),
       ),

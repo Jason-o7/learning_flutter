@@ -23,9 +23,8 @@ class _StfwInkwellGestureDetectorPageState
   // We can also have list variable states and more
 
   // This variables will help us to understand the lifecycle better.
-  String _lifecycleStatus = 'not initialized Widget';
-  int _buildCount =
-      0; // Variable to count how many times the widget has been built.
+  // String _lifecycleStatus = 'not initialized Widget';
+  // int _buildCount = 0; // Variable to count how many times the widget has been built.
   Timer? _timer;
 
   // Stateful widgets also has some common methods that we can override:
@@ -39,7 +38,7 @@ class _StfwInkwellGestureDetectorPageState
     _counter = 12;
     _isLiked = true;
     _message = 'Me quiero morir';
-    _lifecycleStatus = 'initialized Widget in initState()';
+    // _lifecycleStatus = 'initialized Widget in initState()';
 
     // This is a simple timer that will increment the counter every 2 seconds.
     _timer = Timer.periodic(const Duration(seconds: 2), (timer) {
