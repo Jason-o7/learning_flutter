@@ -11,7 +11,26 @@ class ExamplePage extends StatelessWidget {
     //
     return Scaffold(
       appBar: AppBar(title: const Text('Example Page')),
-      body: const Center(child: Text('Página de ejemplo')),
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // -------------------------------------------------------------------------
+            // 1. something...
+            // -------------------------------------------------------------------------
+            const Text(
+              '1. something to learn...',
+              style: TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+                color: Colors.blue,
+              ),
+            ),
+            const SizedBox(height: 12),
+          ],
+        ),
+      ),
     );
   }
 }

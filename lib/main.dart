@@ -36,6 +36,14 @@
 // SingleChildScrollView
 // -----------
 // Card
+// ! ScrollController
+// ! child: ConstrainedBox(
+// constraints: BoxConstraints(
+//   minHeight: MediaQuery.of(context).size.height,
+// ),
+// child: IntrinsicHeight(
+//   child: Stack(
+//     children: [
 
 // !!! Add exercises to make it more interactive
 // !!!!!!!! OMG I CAN MAKE THE ROAD TO MAKE A COMPLICATED COMPONENT LIKE
@@ -50,6 +58,8 @@ import 'package:learning_flutter/pages/l04_stateful_widgets_inkwell_gesture_dete
 import 'package:learning_flutter/pages/l05_dropdown_menu_page.dart';
 import 'package:learning_flutter/pages/l06_buttons_page.dart';
 import 'package:learning_flutter/pages/l07_images_page.dart';
+import 'package:learning_flutter/pages/l08_themes.dart';
+import 'package:learning_flutter/pages/l09_input_text.dart';
 // import 'pages/example_page.dart';
 
 void main() {
@@ -63,9 +73,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Mi Aprendizaje Flutter',
+      // -------------------------------------------------------------
+      // Configuraciones del tema
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.teal),
       ),
+      // -------------------------------------------------------------
       home: const HomePage(),
     );
   }
@@ -158,6 +171,27 @@ class HomePage extends StatelessWidget {
                 MaterialPageRoute(builder: (context) => const ImagePage()),
               ),
               child: const Text('7. Images'),
+            ),
+            const SizedBox(height: 20),
+            // -----------------------------------------------------------------
+            // 8. Themes
+            ElevatedButton(
+              onPressed: () => Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const ThemesPage()),
+              ),
+              child: const Text('8. Themes'),
+            ),
+            const SizedBox(height: 20),
+
+            // -----------------------------------------------------------------
+            // 9. Input Text
+            ElevatedButton(
+              onPressed: () => Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const InputTextPage()),
+              ),
+              child: const Text('9. Input Text'),
             ),
             const SizedBox(height: 20),
 

@@ -86,36 +86,13 @@ class ImagePage extends StatelessWidget {
               },
             ),
 
-            // -------------------------------------------------------------------------
-            // 2. ClipRRect - Bordes redondeados (muy común en apps)
-            // -------------------------------------------------------------------------
-            const Text(
-              '2. ClipRRect - Bordes redondeados',
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-                color: Colors.blue,
-              ),
-            ),
-            const SizedBox(height: 12),
-
-            ClipRRect(
-              borderRadius: BorderRadius.circular(16),
-              child: Image.asset(
-                'lib/img/hanako.jpg',
-                width: double.infinity,
-                height: 180,
-                fit: BoxFit.cover,
-              ),
-            ),
-
             const SizedBox(height: 24),
 
             // -------------------------------------------------------------------------
-            // 3. Container + DecorationImage (máximo control)
+            // 2. Container + DecorationImage (máximo control)
             // -------------------------------------------------------------------------
             const Text(
-              '3. Container + DecorationImage (control total)',
+              '2. Container + DecorationImage (control total)',
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
@@ -131,7 +108,7 @@ class ImagePage extends StatelessWidget {
                 borderRadius: BorderRadius.circular(12),
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.black.withOpacity(0.1),
+                    color: Colors.black.withValues(alpha: 0.1),
                     spreadRadius: 2,
                     blurRadius: 8,
                     offset: const Offset(0, 4),
@@ -147,10 +124,10 @@ class ImagePage extends StatelessWidget {
             const SizedBox(height: 24),
 
             // -------------------------------------------------------------------------
-            // 4. CircleAvatar - Imágenes de perfil (estándar industry)
+            // 3. CircleAvatar - Imágenes de perfil (estándar industry)
             // -------------------------------------------------------------------------
             const Text(
-              '4. CircleAvatar - Imágenes de perfil',
+              '3. CircleAvatar - Imágenes de perfil',
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
@@ -183,59 +160,6 @@ class ImagePage extends StatelessWidget {
             const SizedBox(height: 24),
 
             // -------------------------------------------------------------------------
-            // 5. Image.network() - Con manejo profesional de errores
-            // -------------------------------------------------------------------------
-            const Text(
-              '5. Image.network() - Manejo profesional',
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-                color: Colors.blue,
-              ),
-            ),
-            const SizedBox(height: 12),
-
-            Image.network(
-              'https://picsum.photos/400/300',
-              width: double.infinity,
-              height: 200,
-              fit: BoxFit.cover,
-              // Loading state profesional
-              loadingBuilder: (context, child, loadingProgress) {
-                if (loadingProgress == null) return child;
-                return Container(
-                  width: double.infinity,
-                  height: 200,
-                  color: Colors.grey[200],
-                  child: const Center(
-                    child: CircularProgressIndicator(strokeWidth: 2),
-                  ),
-                );
-              },
-              // Error handling profesional
-              errorBuilder: (context, error, stackTrace) {
-                return Container(
-                  width: double.infinity,
-                  height: 200,
-                  color: Colors.grey[300],
-                  child: const Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(Icons.broken_image, size: 50, color: Colors.grey),
-                      SizedBox(height: 8),
-                      Text(
-                        'Error al cargar imagen',
-                        style: TextStyle(color: Colors.grey),
-                      ),
-                    ],
-                  ),
-                );
-              },
-            ),
-
-            const SizedBox(height: 24),
-
-            // -------------------------------------------------------------------------
             // 6. Stack + Overlay (cards profesionales estilo Netflix/Instagram)
             // -------------------------------------------------------------------------
             const Text(
@@ -259,11 +183,10 @@ class ImagePage extends StatelessWidget {
                     child: Image.asset(
                       'lib/img/hanako.jpg',
                       width: double.infinity,
-                      height: 200,
+                      height: double.infinity,
                       fit: BoxFit.cover,
                     ),
                   ),
-                  // Gradient overlay (muy profesional)
                   Container(
                     width: double.infinity,
                     height: 200,
@@ -274,7 +197,7 @@ class ImagePage extends StatelessWidget {
                         end: Alignment.bottomCenter,
                         colors: [
                           Colors.transparent,
-                          Colors.black.withOpacity(0.7),
+                          Colors.black.withValues(alpha: 0.7),
                         ],
                       ),
                     ),
@@ -310,7 +233,7 @@ class ImagePage extends StatelessWidget {
             const SizedBox(height: 24),
 
             // -------------------------------------------------------------------------
-            // 7. AspectRatio - Proporción consistente (MUY PROFESIONAL)
+            // 7. AspectRatio - Proporción consistente
             // -------------------------------------------------------------------------
             const Text(
               '7. AspectRatio - Proporción consistente',
@@ -357,7 +280,9 @@ class ImagePage extends StatelessWidget {
             ),
             const SizedBox(height: 12),
 
-            // BoxFit.cover (más usado)
+            // BoxFit.cover
+            // Llena completamente el contenedor recortando lo que sobra de la imagen
+            // ya que no cabe en el contenedor
             const Text('BoxFit.cover (más usado en producción):'),
             SizedBox(
               width: double.infinity,
@@ -370,18 +295,39 @@ class ImagePage extends StatelessWidget {
 
             const SizedBox(height: 12),
 
-            // BoxFit.contain
-            const Text('BoxFit.contain (mantiene toda la imagen):'),
+            // BoxFit.fill
+            const Text(
+              'BoxFit.fill (estira la imagen para llenar el contenedor):',
+            ),
             Container(
               width: double.infinity,
               height: 120,
               decoration: BoxDecoration(
-                color: Colors.grey[200],
+                color: const Color.fromARGB(255, 180, 255, 255),
                 borderRadius: BorderRadius.circular(8),
               ),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(8),
-                child: Image.asset('lib/img/hanako.jpg', fit: BoxFit.contain),
+                child: Image.asset('lib/img/hanako.jpg', fit: BoxFit.fill),
+              ),
+            ),
+
+            const SizedBox(height: 12),
+
+            // BoxFit.none
+            // Mantiene todo el tamaño original de la imagen sin escalar, además
+            // que se centra en el contenedor y puede sobresalir o dejar espacios
+            const Text('BoxFit.none:'),
+            Container(
+              width: double.infinity,
+              height: 120,
+              decoration: BoxDecoration(
+                color: const Color.fromARGB(255, 180, 255, 255),
+                borderRadius: BorderRadius.circular(8),
+              ),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(8),
+                child: Image.asset('lib/img/hanako.jpg', fit: BoxFit.none),
               ),
             ),
 
@@ -391,7 +337,7 @@ class ImagePage extends StatelessWidget {
             // 9. Placeholder Pattern (PATRÓN PROFESIONAL)
             // -------------------------------------------------------------------------
             const Text(
-              '9. Placeholder Pattern (muy profesional)',
+              '9. Stack para superponer widgets o en este caso imagenes',
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
@@ -400,88 +346,44 @@ class ImagePage extends StatelessWidget {
             ),
             const SizedBox(height: 12),
 
-            Container(
-              width: double.infinity,
-              height: 200,
-              decoration: BoxDecoration(
-                color: Colors.grey[200],
-                borderRadius: BorderRadius.circular(8),
-              ),
-              child: Stack(
-                children: [
-                  // Placeholder shimmer effect
-                  Container(
-                    width: double.infinity,
-                    height: 200,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(8),
-                      gradient: LinearGradient(
-                        colors: [
-                          Colors.grey[200]!,
-                          Colors.grey[100]!,
-                          Colors.grey[200]!,
-                        ],
-                      ),
-                    ),
-                  ),
-                  // Icono placeholder
-                  const Center(
-                    child: Icon(Icons.image, size: 60, color: Colors.grey),
-                  ),
-                ],
-              ),
+            Stack(
+              children: [
+                // Capa 1 (fondo)
+                Container(width: 200, height: 200, color: Colors.blue),
+
+                // Capa 2 (encima)
+                Container(width: 100, height: 100, color: Colors.red),
+
+                // Capa 3 (más encima)
+                Container(width: 50, height: 50, color: Colors.yellow),
+              ],
             ),
+            Stack(
+              children: [
+                // Fondo
+                Container(width: 200, height: 200, color: Colors.blue),
 
-            const SizedBox(height: 24),
+                // Esquina superior izquierda
+                Positioned(
+                  top: 10,
+                  left: 10,
+                  child: Container(width: 50, height: 50, color: Colors.red),
+                ),
 
-            // -------------------------------------------------------------------------
-            // 10. Buenas prácticas profesionales
-            // -------------------------------------------------------------------------
-            const Text(
-              '10. 📋 Prácticas Profesionales',
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-                color: Colors.orange,
-              ),
-            ),
-            const SizedBox(height: 12),
+                // Esquina inferior derecha
+                Positioned(
+                  bottom: 10,
+                  right: 10,
+                  child: Container(width: 50, height: 50, color: Colors.green),
+                ),
 
-            Container(
-              width: double.infinity,
-              padding: const EdgeInsets.all(16),
-              decoration: BoxDecoration(
-                color: Colors.orange.withOpacity(0.1),
-                borderRadius: BorderRadius.circular(8),
-                border: Border.all(color: Colors.orange.withOpacity(0.3)),
-              ),
-              child: const Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'En entornos profesionales SIEMPRE:',
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
-                  ),
-                  SizedBox(height: 8),
-                  Text('✅ Usar fit: BoxFit.cover (95% de los casos)'),
-                  Text('✅ Definir width y height explícitos'),
-                  Text('✅ Manejar loading states (CircularProgressIndicator)'),
-                  Text('✅ Manejar error states (broken_image icon)'),
-                  Text('✅ Usar AspectRatio para consistencia'),
-                  Text('✅ ClipRRect para bordes redondeados'),
-                  Text('✅ cached_network_image para imágenes de internet'),
-                  Text('✅ Optimizar tamaños según dispositivo'),
-                  SizedBox(height: 8),
-                  Text(
-                    'Packages profesionales:',
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                  ),
-                  Text('• cached_network_image: Cache automático'),
-                  Text('• flutter_svg: Iconos vectoriales'),
-                  Text('• image_picker: Cámara/galería'),
-                  Text('• photo_view: Zoom profesional'),
-                ],
-              ),
+                // Centro
+                Positioned(
+                  top: 75,
+                  left: 75,
+                  child: Container(width: 50, height: 50, color: Colors.yellow),
+                ),
+              ],
             ),
           ],
         ),
